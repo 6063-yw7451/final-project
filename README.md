@@ -55,11 +55,11 @@ I decided to chose the first proposal "Interactive Music Controller" for my fina
 
 **System diagram**
 Here is the system diagram including simple description of input, process and output.
-![SD](./System Diagram.png)
+![SD](./SD.png)
 
 **FSM diagram**
 Here is the first draft of FSM, I may add more buttons(instruments) later.
-![FSM](./FSM Diagram.png)
+![FSM](./FSM.png)
 
 **Circuit diagram**
 Here is the circuit diagram for color sensor function.
