@@ -55,7 +55,8 @@ I decided to chose the first proposal "Interactive Music Controller" for my fina
 
 **System diagram**
 Here is the system diagram including simple description of input, process and output.
-![SD](./SD.png)
+![SD1](./SD.png)
+![SD2](./System%20Diagram%20Update.png)
 
 **FSM diagram**
 Here is the first draft of FSM, I may add more buttons(instruments) later.
