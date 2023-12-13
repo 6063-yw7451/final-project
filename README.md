@@ -88,3 +88,6 @@ Engagement: Provides an engaging way for individuals to interact with digital mu
 Accessibility: Offers a creative musical outlet, potentially accessible to diverse audiences.
 Technological Interaction: Represents the integration of physical inputs with digital music, reflecting the evolving relationship between technology and creativity.
 
+## Week 13 Update
+p5js visual update
+add audio

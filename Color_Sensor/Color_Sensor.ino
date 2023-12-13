@@ -11,6 +11,7 @@ void setup() {
      // return 0; 
   } 
   Serial.print("TCS34725 initialization success!!\r\n");
+  Serial.begin(9600);
 }
 
 void writeData(int r,int g,int b) {
