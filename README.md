@@ -89,5 +89,7 @@ Accessibility: Offers a creative musical outlet, potentially accessible to diver
 Technological Interaction: Represents the integration of physical inputs with digital music, reflecting the evolving relationship between technology and creativity.
 
 ## Week 13 Update
-p5js visual update
-add audio
+My circuit is the same as the one I used last week.
+In this week, I added more p5js visual elements and audio library.
+
+For the next week, I will complete the whole visual effect, and make sure the audio plays correctly to the corresponding color.
