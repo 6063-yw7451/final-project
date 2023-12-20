@@ -12,6 +12,7 @@ void setup() {
   } 
   Serial.print("TCS34725 initialization success!!\r\n");
   Serial.begin(9600);
+  pinMode(4,INPUT_PULLUP);
 }
 
 void writeData(int r,int g,int b) {
@@ -27,11 +28,16 @@ void writeData(int r,int g,int b) {
 
   Serial.println(resTxt);
 }
+int lastVal=1;
 void loop() {
   rgb=TCS34725_Get_RGBData();
   RGB888=TCS34725_GetRGB888(rgb);
   RGB565=TCS34725_GetRGB565(rgb);
-  writeData(RGB888.R,RGB888.G,RGB888.B);
+  int val=digitalRead(4);
+  if(val==0 && lastVal==1){
+    writeData(RGB888.R,RGB888.G,RGB888.B);
+  }
+  lastVal=val;
 //
 //  Serial.print("RGB565= 0x");
 //  Serial.println((RGB565), HEX); 
@@ -41,5 +47,5 @@ void loop() {
 //      Serial.print("Lux_Interrupt = 0\r\n");
 //  }
 //  Serial.print("\r\n");
-  DEV_Delay_ms(1000);
+  DEV_Delay_ms(100);
 }

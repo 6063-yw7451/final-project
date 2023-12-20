@@ -11,6 +11,19 @@ let maze;
 let currentAngle = 0;
 let objects = [];
 // 键盘事件处理，用于切换全屏
+let sounds = [];
+let numSounds = 10; // 假设您有10个MP3文件
+let currentSound = 0;
+
+function preload() {
+  // 假设您的文件名是 "sound1.mp3", "sound2.mp3", ..., "sound10.mp3"
+  for (let i = 1; i <= numSounds; i++) {
+    let sound = loadSound('mp3/' + i + '.mp3');
+    sounds.push(sound);
+  }
+  let sound = loadSound('mp3/10.mp3');
+  sounds.push(sound);
+}
 function keyPressed() {
   if (key == "a" || key == "A") {
     let fs = fullscreen();
@@ -44,18 +57,14 @@ function parseData(data) {
   BB = data.B.value;
 
   
-  if(millis()-counter>1000){
     counter=millis();
     // 生成音符
-  let noteFrequency = map(RR + GG + BB, 0, 765, 100, 1000); // 将颜色值映射到音频频率
+  let noteFrequency = floor(random(0, 10)); // 将颜色值映射到音频频率
   
-    objects.push(new serialCircle(RR,GG,BB,noteFrequency));
-  }
-}
-function mousePressed(){
-    objects.push(new serialCircle(random(255),random(255),random(255)));
+  objects.push(new serialCircle(RR,GG,BB,noteFrequency));
   
 }
+
 function connectToSerial() {
   if (!mSerial.opened()) {
     mSerial.open(9600);
@@ -68,7 +77,7 @@ function connectToSerial() {
 
 function setup() {
   randomSeed(1010);
-  createCanvas(windowHeight, windowHeight);
+  createCanvas(windowWidth, windowHeight);
   mSerial = createSerial();
 
   serialButton = createButton("Connect To Serial");
@@ -81,7 +90,7 @@ function setup() {
 }
 
 function draw() {
-  background(220, 220, 120);
+  background(120, 120+abs(cos(frameCount*0.01))*130, 120,40);
     // update serial: request new data
     if (mSerial.opened() && readyForSerialData) {
       readyForSerialData = false;
@@ -105,9 +114,9 @@ class serialCircle {
     this.x = random(width);
     this.y = random(height / 4, (height * 4) / 4);
 
-    this.h1 = random(height / 16, height / 8);
-    this.h2 = random(height / 16, height / 8);
-    this.h3 = random(height / 16, height / 8);
+    this.h1 = random(height / 8, height / 4);
+    this.h2 = random(height / 8, height / 4);
+    this.h3 = random(height / 8, height / 4);
 
     this.w1 = this.h1;
     this.w2 = this.h2;
@@ -129,9 +138,10 @@ class serialCircle {
     this.osc.start();
   }
   display() {
-    this.w1 = this.h1 * cos(frameCount * this.rand1);
-    this.w2 = this.h2 * cos(frameCount * this.rand2);
-    this.w3 = this.h3 * cos(frameCount * this.rand3);
+    let rt=0.01;
+    this.w1 = this.h1 * cos(frameCount*rt * this.rand1);
+    this.w2 = this.h2 * cos(frameCount*rt * this.rand2);
+    this.w3 = this.h3 * sin(frameCount*rt * this.rand3);
     stroke(200);
     strokeWeight(3);
     line(this.x, 0, this.x, this.y);
@@ -147,10 +157,9 @@ class serialCircle {
     return d < this.h1*2 / 2;
   }
 
-  playNote() {
-    this.osc.amp(0.5, 0.1);
-    setTimeout(() => {
-      this.osc.amp(0, 0.1);
-    }, 200);
+  playNote() {  
+    if(!sounds[this.freq].isPlaying()){
+      sounds[this.freq].play();
+    }
   }
 }
