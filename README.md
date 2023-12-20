@@ -103,8 +103,9 @@ For the next week, I will complete the whole visual effect, and make sure the au
 ![FSMFinal](./FSM%20FINAL.png)
 
 **Circuit diagram**
-![CircuitFinal1](./Circuit.png)
+
 ![CircuitFinal2](./Circuit%20button.png)
+![CircuitFinal1](./Circuit.png)
 
 **External data and library**
 Arduino Serial Communication Library
