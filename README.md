@@ -96,10 +96,12 @@ For the next week, I will complete the whole visual effect, and make sure the au
 
 ## FINAL
 **System diagram**
+
 ![SDFinal1](./SD%20final.png)
 ![SDFinal2](./SD.png)
 
 **FSM diagram**
+
 ![FSMFinal](./FSM%20FINAL.png)
 
 **Circuit diagram**
@@ -108,28 +110,35 @@ For the next week, I will complete the whole visual effect, and make sure the au
 ![CircuitFinal1](./Circuit.png)
 
 **External data and library**
+
 Arduino Serial Communication Library
 P5.js Library
 p5.sound Library
 
 **Sensor, output component and mechanism**
+
 Color Recognition Modules: Input component.
 Buttons: Input component.
 Screen: Output component.
 
 **Reference images, texts and projects**
+
 Here is the visual reference.
 ![Reference](./Reference.jpg)
 
 **how is it related to our readings?**
+
 By immersing individuals in the simulated sounds and scenes of a forest, this project aims to prompt reflection on the intricate relationship between humans and nature in our contemporary, digital age. The choice of a forest setting is symbolic, representing the richness of nature. Forests are often viewed as ecosystems that thrive in balance, offering an analogy for the desired equilibrium between humans and the digital realm.
 
 **how does it connected to society?**
+
 This project prompts contemplation not only on individual experiences but also on the broader societal impact of our digital interactions on the natural world. Placing this reflection within the context of the digital age adds a layer of relevance. It acknowledges the transformative impact of technology on our lives while questioning its potential consequences on our connection to nature.
 
 **why is it important to you?**
+
 Integrating music, sound, and visuals creates a multisensory experience which is important to me. This approach not only appeals to our auditory and visual senses but also provides a holistic encounter that engages individuals on a deeper level. This represents a progress of my UX design experiences.
 
 **feedback from user testing**
+
 Clearer instructions may be needed to tell users the order in which buttons and sensors should be used.
 The background can be pictures of forest that changes from day to night instead of simple color changing.
